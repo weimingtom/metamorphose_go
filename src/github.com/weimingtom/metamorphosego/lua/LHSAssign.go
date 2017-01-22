@@ -1,4 +1,4 @@
-/*  $Header: //info.ravenbrook.com/project/jili/version/1.1/code/mnj/lua/Hook.java#1 $
+/*  $Header: //info.ravenbrook.com/project/jili/version/1.1/code/mnj/lua/Syntax.java#1 $
  * Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
  * All rights reserved.
  * 
@@ -28,13 +28,33 @@
 //	http://code.google.com/p/jillcode/	
 package metamorphosego
 
-import (
-	//. "github.com/weimingtom/metamorphosego/lua"
-)
+type LHSAssign struct {
+	_prev *LHSAssign
+	_v *Expdesc
+}
 
-/**
- * Equivalent of lua_Hook.  Callback for debug hooks.
- */
-type Hook interface {
-	LuaHook(L *Lua, ar *Debug) int
+func NewLHSAssign() *LHSAssign {
+	self := &LHSAssign{}
+	self._prev = nil
+	self._v = NewExpdesc()
+	return self
+}
+
+func (self *LHSAssign) Init(prev *LHSAssign) {
+	self._prev = prev
+}
+
+//新增
+func (self *LHSAssign) GetPrev() *LHSAssign {
+	return self._prev
+}
+
+//新增
+func (self *LHSAssign) SetPrev(prev *LHSAssign) {
+	self._prev = prev
+}
+
+//新增
+func (self *LHSAssign) GetV() *Expdesc {
+	return self._v
 }

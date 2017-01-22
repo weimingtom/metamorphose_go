@@ -40,6 +40,6 @@ type BlockCnt struct {
 }
 
 func NewBlockCnt() *BlockCnt {
-	b := &BlockCnt{}
-	return b
+	self := &BlockCnt{}
+	return self
 }

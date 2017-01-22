@@ -7,10 +7,10 @@ type LuaError struct {
 }
 
 func NewLuaError(errorStatus int) *LuaError {
-	e := &LuaError{}
-	e.message = "Lua error"; //super("Lua error");
-	e._errorStatus = errorStatus;
-	return e 
+	self := &LuaError{}
+	self.message = "Lua error" //super("Lua error");
+	self._errorStatus = errorStatus
+	return self 
 }
 
 func (self *LuaError) GetErrorStatus() int {

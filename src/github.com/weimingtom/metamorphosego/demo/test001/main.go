@@ -26,4 +26,7 @@ func main() {
 	var hook Hook
 	hook = &HookImpl{}
 	hook.LuaHook(nil, nil)
+	
+	NewLHSAssign()
+	NewLocVar()
 }

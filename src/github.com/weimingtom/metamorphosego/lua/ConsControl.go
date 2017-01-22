@@ -41,11 +41,11 @@ type ConsControl struct {
 }
 
 func NewConsControl(t *Expdesc) *ConsControl {
-	c := &ConsControl{}
-	c.v = NewExpdesc()
-	c.t = t
-	c.nh = 0
-	c.na = 0
-	return c
+	self := &ConsControl{}
+	self.v = NewExpdesc()
+	self.t = t
+	self.nh = 0
+	self.na = 0
+	return self
 }
 
